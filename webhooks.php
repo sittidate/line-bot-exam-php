@@ -5,6 +5,29 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'IoXEpi6tL2jr5m7sipCpE3MUGDn5jxxQDWxo2lRrYx5bFyBbPJo6IQHEiVwArKVk7aFKHbwBvAnNAC72jy608KpCHzwucSOb7dC1GO7UtvAoQKb19wZPdEclNE8/C1OxqbAJQ6h+1Rs5kU7TUP4MGQdB04t89/1O/w1cDnyilFU=';
 
+// Request Format
+/*
+{  "events": [
+    {    
+	  "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",        
+	  "type": "message",        
+	  "timestamp": 1462629479859,        
+	  "source": 
+		  {             
+		  "type": "user",             
+		  "userId": "U206d25c2ea6bd87c17655609a1c37cb8"         
+		  },         
+	  "message": 
+		  {             
+		  "id": "325708",             
+		  "type": "text",             
+		  "text": "Hello, world"          
+		  }      
+	}  
+	]
+}
+*/
+
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -17,6 +40,8 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['source']['userId'];
+			$text = "@BosS";
+			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
