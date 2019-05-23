@@ -26,7 +26,6 @@ $access_token = 'IoXEpi6tL2jr5m7sipCpE3MUGDn5jxxQDWxo2lRrYx5bFyBbPJo6IQHEiVwArKV
 */
 // Get POST body content
 $content = file_get_contents('php://input');
-var_dump($content);
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
@@ -50,7 +49,9 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			
 			$text = $url;
-			$text = $text." ".var_dump($result);
+			
+			$res = json_decode($result, true);
+			$text = $text." ".$res['displayName'];
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
