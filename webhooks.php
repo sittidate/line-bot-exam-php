@@ -51,7 +51,8 @@ if (!is_null($events['events'])) {
 		
 			$text = "@";
 			$res = json_decode($result, true);
-			$text = $text.$res['displayName']."\n";
+			$text = $text.$res['displayName']."\t\n";
+			$text = $text.$res['displayName']."\r\n";
 //			$text = $text." ".var_dump($events);
 			
 			// Get replyToken
