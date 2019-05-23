@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 //			$text = "@";
 			$res = json_decode($result, true);
 //			$text = "@".$res['displayName']."\t\n";
-			$text = event['message']['text'];
+			$text = $event['message']['text'];
 //			$text = "@".$text.$res['displayName']."\r\n";
 //			$text = $text.$res;
 //			$text = $text." ".var_dump($events);
