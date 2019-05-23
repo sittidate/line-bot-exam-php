@@ -47,11 +47,10 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			
-			$text = $url;
-			
+		
+			$text = "@";
 			$res = json_decode($result, true);
-			$text = $text." ".$res['displayName'];
+			$text = $text.$res['displayName'];
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
