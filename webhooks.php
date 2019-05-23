@@ -50,6 +50,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			
 			$text = $result['userId'];
+			$text = $url;
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
