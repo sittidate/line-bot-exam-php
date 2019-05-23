@@ -49,7 +49,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			$text = $result['displayName'];
+			$text = $url;
+			$text = $text." ".var_dump($result);
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
