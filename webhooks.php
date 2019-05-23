@@ -30,8 +30,8 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 ob_start();
 var_dump($events);
-$result = ob_get_clean();
-echo $result;
+$res = ob_get_clean();
+echo $res;
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -55,8 +55,8 @@ if (!is_null($events['events'])) {
 //			$text = "@";
 			$res = json_decode($result, true);
 			$text = "@".$res['displayName']."\t\n";
-			$text = "@".$text.$res['displayName']."\r\n";
-			$text = $text.$result;
+//			$text = "@".$text.$res['displayName']."\r\n";
+			$text = $text.$res;
 //			$text = $text." ".var_dump($events);
 			
 			// Get replyToken
