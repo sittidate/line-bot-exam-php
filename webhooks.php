@@ -49,8 +49,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			$text = $result['userId'];
-			$text = $url;
+			$text = $event['source']['groupId'];
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
