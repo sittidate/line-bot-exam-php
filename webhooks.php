@@ -48,10 +48,10 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 		
-			$text = "@";
+			$text = "<@";
 			$res = json_decode($result, true);
-			$text = $text.$res['displayName']."\n";
-			$text = '<@'.$text.$res['displayName'].'>\n';
+			$text = $text.$res['displayName'].">\n";
+//			$text = '<@'.$text.$res['displayName'].'>\n';
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
