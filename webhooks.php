@@ -50,7 +50,7 @@ if (!is_null($events['events'])) {
 		
 			$text = "@";
 			$res = json_decode($result, true);
-			$text = $text.$res['displayName'];
+			$text = $text.$res['displayName']."\n";
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
