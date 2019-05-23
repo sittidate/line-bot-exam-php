@@ -39,6 +39,8 @@ if (!is_null($events['events'])) {
 			$userid = $event['source']['userId'];
 			$groupid = $event['source']['groupId'];
 			
+			$text = $userid;
+			$text = $text." ".$groupid;
 			$url = 'https://api.line.me/v2/bot/group/'.$groupId.'/member/'.$userId;
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
@@ -49,7 +51,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			$text = $event['source']['groupId'];
+			$text = $text." ".$url;
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
