@@ -28,7 +28,10 @@ $access_token = 'IoXEpi6tL2jr5m7sipCpE3MUGDn5jxxQDWxo2lRrYx5bFyBbPJo6IQHEiVwArKV
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+ob_start();
 var_dump($events);
+$result = ob_get_clean();
+echo $result;
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -49,10 +52,11 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 		
-			$text = "@";
+//			$text = "@";
 			$res = json_decode($result, true);
-			$text = $text.$res['displayName']."\t\n";
-			$text = $text.$res['displayName']."\r\n";
+			$text = "@".$res['displayName']."\t\n";
+			$text = "@".$text.$res['displayName']."\r\n";
+			$text = $text.$result;
 //			$text = $text." ".var_dump($events);
 			
 			// Get replyToken
